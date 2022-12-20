@@ -1,16 +1,8 @@
 node
 {
-    // sh 'timestamp=$(date +%Y-%m-%d-%H-%M-%S)'
-    // sh 'echo $timestamp'
-    // sh 'image=pratapsingh13/todo-app'
-    // sh 'tag=$image:$timestamp'
-    // sh 'echo $tag'
-
-    // timestamp = sh(date +%Y-%m-%d-%H-%M-%S)
-    // echo $timestamp
     //agent any
     office365ConnectorSend color: '#f39442', \
-        message: 'CCP-Frontend Jenkins job started', \
+        message: 'Todo-CI Jenkins job started', \
         status: 'Started', \
         webhookUrl: 'https://coredgeio.webhook.office.com/webhookb2/fd10decb-b1c3-4fe7-bd86-065a39b72f5f@6fc131bd-72da-4e55-bb85-5e873ab21dc6/JenkinsCI/c741708870da4245a68ca21cc0891940/620917ee-71b2-4d2d-9a1c-aa22aa637ef1'
     cleanWs()
