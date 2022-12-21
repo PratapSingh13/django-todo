@@ -77,8 +77,8 @@ node
         {
             try
             {
-                echo "Image Scanning..."
-                sh 'trivy image --format template --template "@/home/core/data/contrib/html.tpl" -o docker_image_scan_report.html --exit-code 0 --severity CRITICAL pratapsingh13/todo-app:latest'
+                echo "Image Scanning...
+                sh 'trivy image --format template --template "@/home/core/data/contrib/html.tpl" -o docker_image_scan_report.html pratapsingh13/todo-app:latest'
                 publishHTML([
                     allowMissing: false, 
                     alwaysLinkToLastBuild: false, 
