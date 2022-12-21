@@ -60,7 +60,7 @@ node
                 //echo "${timestamp}"
                 //echo "${hashId}"
                 echo "${tag}"
-                dockerImage = docker.build("pratapsingh13/todo-app:${BUILD_TIMESTAMP}-${BUILD_NUMBER}")
+                dockerImage = docker.build("pratapsingh13/todo-app:latest")
             }
             catch(Exception e)
             {
@@ -78,8 +78,8 @@ node
             try
             {
                 echo "Image Scanning..."
-                sh 'trivy image --reset'
-                sh 'trivy image --format template --template "@/home/core/data/contrib/html.tpl" -o docker_image_scan_report.html pratapsingh13/todo-app:latest'
+                //sh 'trivy image --reset'
+                //sh 'trivy image --format template --template "@/home/core/data/contrib/html.tpl" -o docker_image_scan_report.html pratapsingh13/todo-app:latest'
                 publishHTML([
                     allowMissing: false, 
                     alwaysLinkToLastBuild: false, 
@@ -115,6 +115,7 @@ node
                         try
                         {
                             echo "Trying to Image Push"
+                            sh 'docker tag pratapsingh13/todo-app:latest pratapsingh13/todo-app:${BUILD_TIMESTAMP}-${BUILD_NUMBER}'
                             dockerImage.push()
                         }
                         catch(Exception e)
