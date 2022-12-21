@@ -78,8 +78,8 @@ node
             try
             {
                 echo "Image Scanning..."
-                //sh 'trivy image --reset'
-                //sh 'trivy image --format template --template "@/home/core/data/contrib/html.tpl" -o docker_image_scan_report.html pratapsingh13/todo-app:latest'
+                sh 'trivy image --reset'
+                sh 'trivy image --format template --template "@/home/core/data/contrib/html.tpl" -o docker_image_scan_report.html pratapsingh13/todo-app:latest'
                 publishHTML([
                     allowMissing: false, 
                     alwaysLinkToLastBuild: false, 
